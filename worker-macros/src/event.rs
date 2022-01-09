@@ -62,6 +62,7 @@ pub fn expand_macro(attr: TokenStream, item: TokenStream) -> TokenStream {
                     req: worker_sys::Request, 
                     env: ::worker::Env, 
                     ctx: worker_sys::Context) -> worker_sys::Response {
+                    let ctx = worker::Context::new(ctx);
                     // get the worker::Result<worker::Response> by calling the original fn
                     match #input_fn_ident(worker::Request::from(req), env, ctx).await.map(worker_sys::Response::from) {
                         Ok(res) => res,
