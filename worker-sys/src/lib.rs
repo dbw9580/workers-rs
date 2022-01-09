@@ -1,4 +1,5 @@
 pub mod cf;
+pub mod context;
 pub mod durable_object;
 pub mod file;
 pub mod formdata;
@@ -17,6 +18,7 @@ macro_rules! console_log {
 
 pub mod prelude {
     pub use crate::cf::Cf;
+    pub use crate::context::Context;
     pub use crate::console_log;
     pub use crate::durable_object;
     pub use crate::file::File;
@@ -29,6 +31,7 @@ pub mod prelude {
 }
 
 pub use cf::Cf;
+pub use context::Context;
 pub use durable_object::*;
 pub use file::File;
 pub use formdata::FormData;
